@@ -86,6 +86,100 @@
             background: rgba(15, 23, 42, 0.8);
             border-color: #334155;
          }
+         .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+         }
+         .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #e5e7eb;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+         }
+         .dark .timeline::after {
+            background-color: #374151;
+         }
+         .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+         }
+         .timeline-item:nth-child(odd) {
+            left: 0;
+         }
+         .timeline-item:nth-child(even) {
+            left: 50%;
+         }
+         .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid #3b82f6;
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+         }
+         .timeline-item:nth-child(odd)::after {
+            right: -13px;
+         }
+         .timeline-item:nth-child(even)::after {
+            left: -13px;
+         }
+         .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         }
+         .dark .timeline-content {
+            background-color: var(--dark-card);
+         }
+         .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 20px;
+         }
+         .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 20px;
+         }
+         @media screen and (max-width: 768px) {
+            .timeline::after {
+               left: 31px;
+            }
+            .timeline-item {
+               width: 100%;
+               padding-left: 70px;
+               padding-right: 25px;
+            }
+            .timeline-item:nth-child(even) {
+               left: 0;
+            }
+            .timeline-item::after {
+               left: 18px;
+            }
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+               margin: 0;
+            }
+         }
+         .tech-tag {
+            display: inline-block;
+            background: #e5e7eb;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 2px;
+         }
+         .dark .tech-tag {
+            background: #374151;
+         }
       </style>
    </head>
 
@@ -276,41 +370,136 @@
       <!-- EXPERIENCE -->
       <section id="experience" class="py-20 bg-white dark:bg-dark-bg">
          <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center section-title mx-auto">Experience</h2>
-            <div class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-blue-300 before:via-blue-500 before:to-blue-300">
-               <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active" data-aos="fade-up">
-                  <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2"></div>
-
-                  <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-gray-50 dark:bg-dark-card p-4 rounded border border-gray-200 dark:border-gray-700 shadow">
-                     <div class="flex items-center justify-between space-x-2 mb-1">
-                        <div class="font-bold text-blue-600 dark:text-blue-400">Peerbits Solutions</div>
-                        <time class="font-caption text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">Nov 2022 - Present</time>
+            <h2 class="text-3xl font-bold mb-12 text-center section-title mx-auto">Work Experience</h2>
+            
+            <div class="space-y-12">
+               <!-- KanhaSoft -->
+               <div class="flex flex-col md:flex-row gap-6" data-aos="fade-up">
+                  <div class="md:w-1/4">
+                     <h3 class="text-xl font-bold text-blue-600 dark:text-blue-400">Python Developer</h3>
+                     <p class="text-gray-600 dark:text-gray-400 mt-1">KanhaSoft · Full-time</p>
+                     <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Feb 2024 - Present · 1 yr 8 mos</p>
+                     <p class="text-sm text-gray-500 dark:text-gray-400">Ahmedabad, Gujarat, India · On-site</p>
+                  </div>
+                  <div class="md:w-3/4 bg-gray-50 dark:bg-dark-card p-6 rounded-lg">
+                     <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                        <li>Developing and maintaining web applications and APIs using Django & Django REST Framework</li>
+                        <li>Handling database management and optimization tasks with PostgreSQL and Oracle</li>
+                        <li>Implementing task queues and scheduling periodic tasks with Celery & Celery Beat</li>
+                        <li>Monitoring and managing Celery tasks using Flower</li>
+                        <li>Utilizing containerization for application deployment and management with Docker</li>
+                        <li>Implementing error tracking and monitoring for application stability with Sentry</li>
+                        <li>Utilizing serverless computing for scalable solutions with AWS Lambda</li>
+                        <li>Web scraping for data extraction using Python Scrapy and Selenium</li>
+                        <li>Managing and integrating Walmart's third-party API for e-commerce solutions</li>
+                     </ul>
+                     <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">Django REST Framework</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Celery</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Oracle</span>
+                        <span class="tech-tag">AWS Lambda</span>
+                        <span class="tech-tag">Scrapy</span>
+                        <span class="tech-tag">Selenium</span>
+                        <span class="tech-tag">Walmart API</span>
                      </div>
-                     <div class="text-sm">Software Engineer (Python)</div>
                   </div>
                </div>
-
-               <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" data-aos="fade-up" data-aos-delay="100">
-                  <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2"></div>
-
-                  <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-gray-50 dark:bg-dark-card p-4 rounded border border-gray-200 dark:border-gray-700 shadow">
-                     <div class="flex items-center justify-between space-x-2 mb-1">
-                        <div class="font-bold text-blue-600 dark:text-blue-400">Horsetech Analytics</div>
-                        <time class="font-caption text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">Nov 2021 - Oct 2022</time>
+               
+               <!-- Peerbits -->
+               <div class="flex flex-col md:flex-row gap-6" data-aos="fade-up" data-aos-delay="100">
+                  <div class="md:w-1/4">
+                     <h3 class="text-xl font-bold text-blue-600 dark:text-blue-400">Software Engineer</h3>
+                     <p class="text-gray-600 dark:text-gray-400 mt-1">Peerbits · Full-time</p>
+                     <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Nov 2022 - Jan 2024 · 1 yr 3 mos</p>
+                     <p class="text-sm text-gray-500 dark:text-gray-400">Ahmedabad, Gujarat, India · On-site</p>
+                  </div>
+                  <div class="md:w-3/4 bg-gray-50 dark:bg-dark-card p-6 rounded-lg">
+                     <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                        <li>Led the design and implementation of scalable backend solutions using Python, Django, Celery, and Django Rest Framework</li>
+                        <li>Developed and optimized PostgreSQL database schemas for enhanced performance in production environments</li>
+                        <li>Streamlined deployment processes using Docker containers and integrated with Azure AD for authentication</li>
+                        <li>Automated workflows and task management with Celery and SFTP for efficient data transfer</li>
+                        <li>Managed version control through GitHub and Bitbucket for seamless collaboration</li>
+                        <li>Conducted code reviews and debugging sessions to ensure high-quality Python code</li>
+                     </ul>
+                     <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">Celery</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Azure AD</span>
+                        <span class="tech-tag">GitHub</span>
+                        <span class="tech-tag">Bitbucket</span>
+                        <span class="tech-tag">SFTP</span>
+                        <span class="tech-tag">Redis</span>
                      </div>
-                     <div class="text-sm">Python Developer</div>
                   </div>
                </div>
-
-               <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" data-aos="fade-up" data-aos-delay="200">
-                  <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2"></div>
-
-                  <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-gray-50 dark:bg-dark-card p-4 rounded border border-gray-200 dark:border-gray-700 shadow">
-                     <div class="flex items-center justify-between space-x-2 mb-1">
-                        <div class="font-bold text-blue-600 dark:text-blue-400">RBZ Private Limited</div>
-                        <time class="font-caption text-xs text-gray-500 dark:text-gray-400 whitespace-nowrap">Feb 2020 - Mar 2021</time>
+               
+               <!-- HorseTech Analytics -->
+               <div class="flex flex-col md:flex-row gap-6" data-aos="fade-up" data-aos-delay="200">
+                  <div class="md:w-1/4">
+                     <h3 class="text-xl font-bold text-blue-600 dark:text-blue-400">Python Developer</h3>
+                     <p class="text-gray-600 dark:text-gray-400 mt-1">HorseTech Analytics · Full-time</p>
+                     <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Nov 2021 - Nov 2022 · 1 yr 1 mo</p>
+                     <p class="text-sm text-gray-500 dark:text-gray-400">Ahmedabad, Gujarat, India · On-site</p>
+                  </div>
+                  <div class="md:w-3/4 bg-gray-50 dark:bg-dark-card p-6 rounded-lg">
+                     <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                        <li>Developed and optimized robust RESTful APIs for seamless integration with frontend applications</li>
+                        <li>Led the design and implementation of APIs for managing services, user accounts, and subscription systems</li>
+                        <li>Engineered scalable, high-performance backend components to support complex business logic</li>
+                        <li>Implemented custom event handling systems to address unique client requirements</li>
+                        <li>Played a pivotal role in developing server-side network infrastructure for millions of users</li>
+                     </ul>
+                     <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">Django REST Framework</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">RESTful APIs</span>
+                        <span class="tech-tag">Backend Development</span>
                      </div>
-                     <div class="text-sm">Data Analysis</div>
+                  </div>
+               </div>
+               
+               <!-- Earlier Roles -->
+               <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-aos="fade-up" data-aos-delay="300">
+                  <div class="bg-gray-50 dark:bg-dark-card p-6 rounded-lg">
+                     <h3 class="text-lg font-bold text-blue-600 dark:text-blue-400">Data Management Analyst</h3>
+                     <p class="text-gray-600 dark:text-gray-400">HorseTech Analytics · Full-time</p>
+                     <p class="text-sm text-gray-500 dark:text-gray-400">Mar 2021 - Oct 2021 · 8 mos</p>
+                     <ul class="list-disc pl-5 mt-3 text-sm text-gray-700 dark:text-gray-300">
+                        <li>Managed customer and merchant data within the Hundred Platform</li>
+                        <li>Identified and resolved data discrepancies ensuring data integrity</li>
+                        <li>Conducted research to fill gaps in incomplete data</li>
+                     </ul>
+                     <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="tech-tag">MIS</span>
+                        <span class="tech-tag">Microsoft Excel</span>
+                        <span class="tech-tag">Data Management</span>
+                     </div>
+                  </div>
+                  
+                  <div class="bg-gray-50 dark:bg-dark-card p-6 rounded-lg">
+                     <h3 class="text-lg font-bold text-blue-600 dark:text-blue-400">MIS Manager</h3>
+                     <p class="text-gray-600 dark:text-gray-400">RBZ Jewellers · Full-time</p>
+                     <p class="text-sm text-gray-500 dark:text-gray-400">Feb 2020 - Mar 2021 · 1 yr 2 mos</p>
+                     <ul class="list-disc pl-5 mt-3 text-sm text-gray-700 dark:text-gray-300">
+                        <li>Prepared detailed Bills of Material (BOM)</li>
+                        <li>Generated comprehensive analysis reports from job cards</li>
+                        <li>Coordinated with supervisors for resource allocation</li>
+                     </ul>
+                     <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="tech-tag">MIS</span>
+                        <span class="tech-tag">Microsoft Excel</span>
+                        <span class="tech-tag">Reporting</span>
+                     </div>
                   </div>
                </div>
             </div>
