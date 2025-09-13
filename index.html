@@ -1,62 +1,48 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-   <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>Parth Dadhaniya — Portfolio</title>
-
-      <!-- Tailwind via CDN -->
-      <script src="https://cdn.tailwindcss.com"></script>
-
-      <!-- Icons -->
-      <link
-         href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-         rel="stylesheet"
-      />
-
-      <!-- AOS for scroll animations -->
-      <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
-      <!-- Typed.js for typing effect -->
-      <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
-      <style>
-         :root {
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parth Dadhaniya - Portfolio</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
             --primary: #2563eb;
             --primary-dark: #1d4ed8;
             --accent-start: #06b6d4;
             --accent-end: #7c3aed;
-            --dark-bg: #0f172a;
-            --dark-text: #f1f5f9;
-            --dark-card: #1e293b;
-         }
-         
-         .accent {
+        }
+        
+        .accent {
             background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
-         }
-         .glass {
+        }
+        
+        .glass {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
-         }
-         .dark .glass {
-            background: rgba(30, 41, 59, 0.7);
-         }
-         .skill-icon {
+        }
+        
+        .skill-icon {
             font-size: 1.2rem;
             width: 24px;
-         }
-         .project-card {
+        }
+        
+        .project-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-         }
-         .project-card:hover {
+        }
+        
+        .project-card:hover {
             transform: translateY(-5px);
-         }
-         .section-title {
+        }
+        
+        .section-title {
             position: relative;
             display: inline-block;
             margin-bottom: 3rem;
-         }
-         .section-title:after {
+        }
+        
+        .section-title:after {
             content: '';
             position: absolute;
             bottom: -10px;
@@ -64,34 +50,44 @@
             width: 50px;
             height: 3px;
             background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
-         }
-         .dark {
-            background-color: var(--dark-bg);
-            color: var(--dark-text);
-         }
-         .dark .bg-white {
-            background-color: var(--dark-card);
-            color: var(--dark-text);
-         }
-         .dark .bg-gray-50 {
-            background-color: #1a253c;
-         }
-         .dark .text-gray-800 {
-            color: var(--dark-text);
-         }
-         .dark .border-gray-200 {
-            border-color: #334155;
-         }
-         .dark-nav {
-            background: rgba(15, 23, 42, 0.8);
-            border-color: #334155;
-         }
-         .timeline {
+        }
+        
+        .tech-tag {
+            display: inline-block;
+            background: #e5e7eb;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 2px;
+        }
+        
+        .form-error {
+            display: none;
+            background: #fee2e2;
+            border: 1px solid #fecaca;
+            color: #b91c1c;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-success {
+            display: none;
+            background: #dcfce7;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .timeline {
             position: relative;
             max-width: 1200px;
             margin: 0 auto;
-         }
-         .timeline::after {
+        }
+        
+        .timeline::after {
             content: '';
             position: absolute;
             width: 6px;
@@ -101,23 +97,24 @@
             left: 50%;
             margin-left: -3px;
             border-radius: 10px;
-         }
-         .dark .timeline::after {
-            background-color: #374151;
-         }
-         .timeline-item {
+        }
+        
+        .timeline-item {
             padding: 10px 40px;
             position: relative;
             width: 50%;
             box-sizing: border-box;
-         }
-         .timeline-item:nth-child(odd) {
+        }
+        
+        .timeline-item:nth-child(odd) {
             left: 0;
-         }
-         .timeline-item:nth-child(even) {
+        }
+        
+        .timeline-item:nth-child(even) {
             left: 50%;
-         }
-         .timeline-item::after {
+        }
+        
+        .timeline-item::after {
             content: '';
             position: absolute;
             width: 25px;
@@ -127,624 +124,517 @@
             border-radius: 50%;
             top: 15px;
             z-index: 1;
-         }
-         .timeline-item:nth-child(odd)::after {
+        }
+        
+        .timeline-item:nth-child(odd)::after {
             right: -13px;
-         }
-         .timeline-item:nth-child(even)::after {
+        }
+        
+        .timeline-item:nth-child(even)::after {
             left: -13px;
-         }
-         .timeline-content {
+        }
+        
+        .timeline-content {
             padding: 20px;
             background-color: white;
             border-radius: 6px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-         }
-         .dark .timeline-content {
-            background-color: var(--dark-card);
-         }
-         .timeline-item:nth-child(odd) .timeline-content {
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
             margin-right: 20px;
-         }
-         .timeline-item:nth-child(even) .timeline-content {
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
             margin-left: 20px;
-         }
-         @media screen and (max-width: 768px) {
+        }
+        
+        @media screen and (max-width: 768px) {
             .timeline::after {
-               left: 31px;
+                left: 31px;
             }
+            
             .timeline-item {
-               width: 100%;
-               padding-left: 70px;
-               padding-right: 25px;
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
             }
+            
             .timeline-item:nth-child(even) {
-               left: 0;
+                left: 0;
             }
+            
             .timeline-item::after {
-               left: 18px;
+                left: 18px;
             }
+            
             .timeline-item:nth-child(odd) .timeline-content,
             .timeline-item:nth-child(even) .timeline-content {
-               margin: 0;
+                margin: 0;
             }
-         }
-         .tech-tag {
-            display: inline-block;
-            background: #e5e7eb;
-            padding: 2px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin: 2px;
-         }
-         .dark .tech-tag {
-            background: #374151;
-         }
-      </style>
-   </head>
-
-   <body class="bg-white text-gray-800 antialiased transition-colors duration-300">
-      <!-- NAV -->
-      <nav
-         class="fixed w-full z-40 top-0 bg-white/80 backdrop-blur border-b border-gray-200 transition-all duration-300 dark:dark-nav"
-         id="navbar"
-      >
-         <div
-            class="max-w-6xl mx-auto flex items-center justify-between px-6 py-3"
-         >
-            <a href="#home" class="font-bold text-lg text-blue-600 dark:text-blue-400">Parth Dadhaniya</a>
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+    <!-- NAV -->
+    <nav class="fixed w-full z-40 top-0 bg-white/80 backdrop-blur border-b border-gray-200">
+        <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
+            <a href="#home" class="font-bold text-lg text-blue-600">Parth Dadhaniya</a>
             <div class="hidden md:flex gap-6 items-center">
-               <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Projects</a>
-               <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Experience</a>
-               <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Skills</a>
-               <a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Contact</a>
-               <button id="themeBtn" class="p-2 rounded-full bg-gray-100 dark:bg-gray-700 transition-colors">
-                  <i class="bx bx-moon text-xl" id="themeIcon"></i>
-               </button>
+                <a href="#projects" class="hover:text-blue-600 transition-colors">Projects</a>
+                <a href="#experience" class="hover:text-blue-600 transition-colors">Experience</a>
+                <a href="#skills" class="hover:text-blue-600 transition-colors">Skills</a>
+                <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
             </div>
             
             <!-- Mobile menu button -->
             <button id="mobileMenuBtn" class="md:hidden p-2">
-               <i class="bx bx-menu text-2xl"></i>
+                <i class="bx bx-menu text-2xl"></i>
             </button>
-         </div>
-         
-         <!-- Mobile menu -->
-         <div id="mobileMenu" class="hidden md:hidden bg-white dark:bg-dark-card px-6 py-4 border-t border-gray-200 dark:border-gray-700">
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white px-6 py-4 border-t border-gray-200">
             <div class="flex flex-col gap-4">
-               <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400">Projects</a>
-               <a href="#experience" class="hover:text-blue-600 dark:hover:text-blue-400">Experience</a>
-               <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400">Skills</a>
-               <a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+                <a href="#projects" class="hover:text-blue-600">Projects</a>
+                <a href="#experience" class="hover:text-blue-600">Experience</a>
+                <a href="#skills" class="hover:text-blue-600">Skills</a>
+                <a href="#contact" class="hover:text-blue-600">Contact</a>
             </div>
-         </div>
-      </nav>
+        </div>
+    </nav>
 
-      <!-- HERO -->
-      <header
-         id="home"
-         class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-900 dark:to-slate-800 pt-20"
-      >
-         <div
-            class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center py-12"
-         >
-            <div class="space-y-6" data-aos="fade-right">
-               <p class="text-blue-600 dark:text-blue-400 font-medium">Hello, I'm</p>
-               <h1 class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
-                  Parth Dadhaniya
-               </h1>
-               <div class="text-xl text-gray-700 dark:text-gray-300 h-8">
-                  <span id="typed" class="font-semibold"></span>
-               </div>
-               <p class="text-gray-600 dark:text-gray-400 max-w-xl">
-                  Backend-focused Software Engineer building scalable systems
-                  with Python and Django. I love creating clean APIs, automation
-                  pipelines and async systems using Celery & Redis.
-               </p>
-               <div class="flex gap-4 flex-wrap">
-                  <a
-                     href="#projects"
-                     class="px-6 py-3 rounded-full accent text-white font-semibold shadow hover:shadow-lg transition-all"
-                     >See Projects</a
-                  >
-                  <a
-                     href="mailto:parthdadhaniya079@gmail.com"
-                     class="px-6 py-3 rounded-full border border-gray-400 dark:border-gray-600 hover:border-blue-500 dark:hover:border-blue-400 transition-colors"
-                     >Email Me</a
-                  >
-               </div>
-               <div class="mt-4 flex gap-4 text-2xl">
-                  <a href="https://github.com/parthdadhaniya" target="_blank" class="text-gray-700 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                     ><i class="bx bxl-github"></i
-                  ></a>
-                  <a href="https://www.linkedin.com" target="_blank" class="text-gray-700 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                     ><i class="bx bxl-linkedin-square"></i
-                  ></a>
-               </div>
+    <!-- HERO -->
+    <header id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 to-indigo-50 pt-20">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center py-12">
+            <div class="space-y-6">
+                <p class="text-blue-600 font-medium">Hello, I'm</p>
+                <h1 class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    Parth Dadhaniya
+                </h1>
+                <div class="text-xl text-gray-700 h-8">
+                    <span id="typed" class="font-semibold"></span>
+                </div>
+                <p class="text-gray-600 max-w-xl">
+                    Backend-focused Software Engineer building scalable systems
+                    with Python and Django. I love creating clean APIs, automation
+                    pipelines and async systems using Celery & Redis.
+                </p>
+                <div class="flex gap-4 flex-wrap">
+                    <a href="#projects" class="px-6 py-3 rounded-full accent text-white font-semibold shadow hover:shadow-lg transition-all">
+                        See Projects
+                    </a>
+                    <a href="#contact" class="px-6 py-3 rounded-full border border-gray-400 hover:border-blue-500 transition-colors">
+                        Contact Me
+                    </a>
+                </div>
+                <div class="mt-4 flex gap-4 text-2xl">
+                    <a href="https://github.com/parthdadhaniya" target="_blank" class="text-gray-700 hover:text-blue-600 transition-colors">
+                        <i class="bx bxl-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com" target="_blank" class="text-gray-700 hover:text-blue-600 transition-colors">
+                        <i class="bx bxl-linkedin-square"></i>
+                    </a>
+                </div>
             </div>
-            <div class="relative" data-aos="fade-left">
-               <div class="glass rounded-2xl p-8 shadow-lg dark:shadow-gray-900/30 border border-white/20">
-                  <h3 class="text-xl font-bold text-gray-800 dark:text-white">
-                     Software Engineer • Python / Django
-                  </h3>
-                  <p class="text-gray-700 dark:text-gray-300 mt-2">Ahmedabad, Gujarat</p>
-                  <div class="mt-6 space-y-3">
-                     <p class="flex items-center gap-2"><span class="font-semibold">Experience:</span> 5+ years</p>
-                     <p class="flex items-center gap-2"><span class="font-semibold">Primary Stack:</span> Django, DRF, Celery</p>
-                     <p class="flex items-center gap-2 mt-4"><i class="bx bx-envelope"></i> parthdadhaniya079@gmail.com</p>
-                     <p class="flex items-center gap-2"><i class="bx bx-phone"></i> +91 7874046823</p>
-                  </div>
-               </div>
+            <div class="relative">
+                <div class="glass rounded-2xl p-8 shadow-lg border border-white/20">
+                    <h3 class="text-xl font-bold text-gray-800">
+                        Software Engineer • Python / Django
+                    </h3>
+                    <p class="text-gray-700 mt-2">Ahmedabad, Gujarat</p>
+                    <div class="mt-6 space-y-3">
+                        <p class="flex items-center gap-2"><span class="font-semibold">Experience:</span> 5+ years</p>
+                        <p class="flex items-center gap-2"><span class="font-semibold">Primary Stack:</span> Django, DRF, Celery</p>
+                        <p class="flex items-center gap-2 mt-4"><i class="bx bx-envelope"></i> parthdadhaniya079@gmail.com</p>
+                        <p class="flex items-center gap-2"><i class="bx bx-phone"></i> +91 7874046823</p>
+                    </div>
+                </div>
             </div>
-         </div>
-      </header>
+        </div>
+    </header>
 
-      <!-- PROJECTS -->
-      <section id="projects" class="py-20 bg-gray-50 dark:bg-gray-900">
-         <div class="max-w-6xl mx-auto px-6">
+    <!-- PROJECTS -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 text-center section-title mx-auto">Projects</h2>
             <div class="grid md:grid-cols-2 gap-8">
-               <article
-                  class="bg-white dark:bg-dark-card p-6 rounded-xl shadow-md project-card border border-gray-100 dark:border-gray-700"
-                  data-aos="fade-up"
-               >
-                  <div class="flex items-start justify-between mb-4">
-                     <h3 class="text-xl font-bold">Mitsui India — Sales Module</h3>
-                     <i class="bx bx-right-arrow-circle text-blue-600 text-xl"></i>
-                  </div>
-                  <p class="text-gray-600 dark:text-gray-400 mt-2">
-                     Developed a dynamic sales management module in Django.
-                     Implemented custom workflows, API integrations, and data
-                     syncing for efficiency and seamless enterprise integration.
-                  </p>
-                  <div class="mt-4 flex flex-wrap gap-2">
-                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">Django</span>
-                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">API Integration</span>
-                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">Workflows</span>
-                  </div>
-               </article>
-               <article
-                  class="bg-white dark:bg-dark-card p-6 rounded-xl shadow-md project-card border border-gray-100 dark:border-gray-700"
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-               >
-                  <div class="flex items-start justify-between mb-4">
-                     <h3 class="text-xl font-bold">Godrej Agrovet — Admin Platform</h3>
-                     <i class="bx bx-right-arrow-circle text-blue-600 text-xl"></i>
-                  </div>
-                  <p class="text-gray-600 dark:text-gray-400 mt-2">
-                     Built an admin panel with user & permission management,
-                     CRUD operations, and form validations. Optimized Django ORM
-                     queries and added background task handling.
-                  </p>
-                  <div class="mt-4 flex flex-wrap gap-2">
-                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">Django</span>
-                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">Admin Panel</span>
-                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">ORM</span>
-                  </div>
-               </article>
-               <article
-                  class="bg-white dark:bg-dark-card p-6 rounded-xl shadow-md project-card border border-gray-100 dark:border-gray-700"
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-               >
-                  <div class="flex items-start justify-between mb-4">
-                     <h3 class="text-xl font-bold">Hundred Offers — Vendor Tools</h3>
-                     <i class="bx bx-right-arrow-circle text-blue-600 text-xl"></i>
-                  </div>
-                  <p class="text-gray-600 dark:text-gray-400 mt-2">
-                     Created vendor onboarding & QC tools with Google Maps
-                     integration for address validation, duplicate detection,
-                     and logo/image verification to streamline operations.
-                  </p>
-                  <div class="mt-4 flex flex-wrap gap-2">
-                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">Google Maps API</span>
-                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">Vendor Onboarding</span>
-                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">QC Tools</span>
-                  </div>
-               </article>
-               <article
-                  class="bg-white dark:bg-dark-card p-6 rounded-xl shadow-md project-card border border-gray-100 dark:border-gray-700"
-                  data-aos="fade-up"
-                  data-aos-delay="300"
-               >
-                  <div class="flex items-start justify-between mb-4">
-                     <h3 class="text-xl font-bold">Doctor Orio (Training)</h3>
-                     <i class="bx bx-right-arrow-circle text-blue-600 text-xl"></i>
-                  </div>
-                  <p class="text-gray-600 dark:text-gray-400 mt-2">
-                     Developed a doctor-patient appointment booking system using
-                     Django ORM and PostgreSQL with approval/rejection workflows
-                     and a clean UI built in Django Templates.
-                  </p>
-                  <div class="mt-4 flex flex-wrap gap-2">
-                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">Django</span>
-                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">PostgreSQL</span>
-                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">Appointment System</span>
-                  </div>
-               </article>
+                <article class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
+                    <div class="flex items-start justify-between mb-4">
+                        <h3 class="text-xl font-bold">Mitsui India — Sales Module</h3>
+                        <i class="bx bx-right-arrow-circle text-blue-600 text-xl"></i>
+                    </div>
+                    <p class="text-gray-600 mt-2">
+                        Developed a dynamic sales management module in Django.
+                        Implemented custom workflows, API integrations, and data
+                        syncing for efficiency and seamless enterprise integration.
+                    </p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Django</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">API Integration</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Workflows</span>
+                    </div>
+                </article>
+                <article class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
+                    <div class="flex items-start justify-between mb-4">
+                        <h3 class="text-xl font-bold">Godrej Agrovet — Admin Platform</h3>
+                        <i class="bx bx-right-arrow-circle text-blue-600 text-xl"></i>
+                    </div>
+                    <p class="text-gray-600 mt-2">
+                        Built an admin panel with user & permission management,
+                        CRUD operations, and form validations. Optimized Django ORM
+                        queries and added background task handling.
+                    </p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Django</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Admin Panel</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">ORM</span>
+                    </div>
+                </article>
+                <article class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
+                    <div class="flex items-start justify-between mb-4">
+                        <h3 class="text-xl font-bold">Hundred Offers — Vendor Tools</h3>
+                        <i class="bx bx-right-arrow-circle text-blue-600 text-xl"></i>
+                    </div>
+                    <p class="text-gray-600 mt-2">
+                        Created vendor onboarding & QC tools with Google Maps
+                        integration for address validation, duplicate detection,
+                        and logo/image verification to streamline operations.
+                    </p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Google Maps API</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Vendor Onboarding</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">QC Tools</span>
+                    </div>
+                </article>
+                <article class="bg-white p-6 rounded-xl shadow-md project-card border border-gray-100">
+                    <div class="flex items-start justify-between mb-4">
+                        <h3 class="text-xl font-bold">Doctor Orio (Training)</h3>
+                        <i class="bx bx-right-arrow-circle text-blue-600 text-xl"></i>
+                    </div>
+                    <p class="text-gray-600 mt-2">
+                        Developed a doctor-patient appointment booking system using
+                        Django ORM and PostgreSQL with approval/rejection workflows
+                        and a clean UI built in Django Templates.
+                    </p>
+                    <div class="mt-4 flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Django</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">PostgreSQL</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Appointment System</span>
+                    </div>
+                </article>
             </div>
-         </div>
-      </section>
+        </div>
+    </section>
 
-      <!-- EXPERIENCE -->
-      <section id="experience" class="py-20 bg-white dark:bg-dark-bg">
-         <div class="max-w-6xl mx-auto px-6">
+    <!-- EXPERIENCE -->
+    <section id="experience" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 text-center section-title mx-auto">Work Experience</h2>
             
             <div class="space-y-12">
-               <!-- KanhaSoft -->
-               <div class="flex flex-col md:flex-row gap-6" data-aos="fade-up">
-                  <div class="md:w-1/4">
-                     <h3 class="text-xl font-bold text-blue-600 dark:text-blue-400">Python Developer</h3>
-                     <p class="text-gray-600 dark:text-gray-400 mt-1">KanhaSoft · Full-time</p>
-                     <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Feb 2024 - Present · 1 yr 8 mos</p>
-                     <p class="text-sm text-gray-500 dark:text-gray-400">Ahmedabad, Gujarat, India · On-site</p>
-                  </div>
-                  <div class="md:w-3/4 bg-gray-50 dark:bg-dark-card p-6 rounded-lg">
-                     <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
-                        <li>Developing and maintaining web applications and APIs using Django & Django REST Framework</li>
-                        <li>Handling database management and optimization tasks with PostgreSQL and Oracle</li>
-                        <li>Implementing task queues and scheduling periodic tasks with Celery & Celery Beat</li>
-                        <li>Monitoring and managing Celery tasks using Flower</li>
-                        <li>Utilizing containerization for application deployment and management with Docker</li>
-                        <li>Implementing error tracking and monitoring for application stability with Sentry</li>
-                        <li>Utilizing serverless computing for scalable solutions with AWS Lambda</li>
-                        <li>Web scraping for data extraction using Python Scrapy and Selenium</li>
-                        <li>Managing and integrating Walmart's third-party API for e-commerce solutions</li>
-                     </ul>
-                     <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="tech-tag">Django</span>
-                        <span class="tech-tag">Django REST Framework</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Celery</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">Oracle</span>
-                        <span class="tech-tag">AWS Lambda</span>
-                        <span class="tech-tag">Scrapy</span>
-                        <span class="tech-tag">Selenium</span>
-                        <span class="tech-tag">Walmart API</span>
-                     </div>
-                  </div>
-               </div>
-               
-               <!-- Peerbits -->
-               <div class="flex flex-col md:flex-row gap-6" data-aos="fade-up" data-aos-delay="100">
-                  <div class="md:w-1/4">
-                     <h3 class="text-xl font-bold text-blue-600 dark:text-blue-400">Software Engineer</h3>
-                     <p class="text-gray-600 dark:text-gray-400 mt-1">Peerbits · Full-time</p>
-                     <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Nov 2022 - Jan 2024 · 1 yr 3 mos</p>
-                     <p class="text-sm text-gray-500 dark:text-gray-400">Ahmedabad, Gujarat, India · On-site</p>
-                  </div>
-                  <div class="md:w-3/4 bg-gray-50 dark:bg-dark-card p-6 rounded-lg">
-                     <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
-                        <li>Led the design and implementation of scalable backend solutions using Python, Django, Celery, and Django Rest Framework</li>
-                        <li>Developed and optimized PostgreSQL database schemas for enhanced performance in production environments</li>
-                        <li>Streamlined deployment processes using Docker containers and integrated with Azure AD for authentication</li>
-                        <li>Automated workflows and task management with Celery and SFTP for efficient data transfer</li>
-                        <li>Managed version control through GitHub and Bitbucket for seamless collaboration</li>
-                        <li>Conducted code reviews and debugging sessions to ensure high-quality Python code</li>
-                     </ul>
-                     <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Django</span>
-                        <span class="tech-tag">Celery</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">Azure AD</span>
-                        <span class="tech-tag">GitHub</span>
-                        <span class="tech-tag">Bitbucket</span>
-                        <span class="tech-tag">SFTP</span>
-                        <span class="tech-tag">Redis</span>
-                     </div>
-                  </div>
-               </div>
-               
-               <!-- HorseTech Analytics -->
-               <div class="flex flex-col md:flex-row gap-6" data-aos="fade-up" data-aos-delay="200">
-                  <div class="md:w-1/4">
-                     <h3 class="text-xl font-bold text-blue-600 dark:text-blue-400">Python Developer</h3>
-                     <p class="text-gray-600 dark:text-gray-400 mt-1">HorseTech Analytics · Full-time</p>
-                     <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Nov 2021 - Nov 2022 · 1 yr 1 mo</p>
-                     <p class="text-sm text-gray-500 dark:text-gray-400">Ahmedabad, Gujarat, India · On-site</p>
-                  </div>
-                  <div class="md:w-3/4 bg-gray-50 dark:bg-dark-card p-6 rounded-lg">
-                     <ul class="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
-                        <li>Developed and optimized robust RESTful APIs for seamless integration with frontend applications</li>
-                        <li>Led the design and implementation of APIs for managing services, user accounts, and subscription systems</li>
-                        <li>Engineered scalable, high-performance backend components to support complex business logic</li>
-                        <li>Implemented custom event handling systems to address unique client requirements</li>
-                        <li>Played a pivotal role in developing server-side network infrastructure for millions of users</li>
-                     </ul>
-                     <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="tech-tag">Django</span>
-                        <span class="tech-tag">Django REST Framework</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">MySQL</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">RESTful APIs</span>
-                        <span class="tech-tag">Backend Development</span>
-                     </div>
-                  </div>
-               </div>
-               
-               <!-- Earlier Roles -->
-               <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-aos="fade-up" data-aos-delay="300">
-                  <div class="bg-gray-50 dark:bg-dark-card p-6 rounded-lg">
-                     <h3 class="text-lg font-bold text-blue-600 dark:text-blue-400">Data Management Analyst</h3>
-                     <p class="text-gray-600 dark:text-gray-400">HorseTech Analytics · Full-time</p>
-                     <p class="text-sm text-gray-500 dark:text-gray-400">Mar 2021 - Oct 2021 · 8 mos</p>
-                     <ul class="list-disc pl-5 mt-3 text-sm text-gray-700 dark:text-gray-300">
-                        <li>Managed customer and merchant data within the Hundred Platform</li>
-                        <li>Identified and resolved data discrepancies ensuring data integrity</li>
-                        <li>Conducted research to fill gaps in incomplete data</li>
-                     </ul>
-                     <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="tech-tag">MIS</span>
-                        <span class="tech-tag">Microsoft Excel</span>
-                        <span class="tech-tag">Data Management</span>
-                     </div>
-                  </div>
-                  
-                  <div class="bg-gray-50 dark:bg-dark-card p-6 rounded-lg">
-                     <h3 class="text-lg font-bold text-blue-600 dark:text-blue-400">MIS Manager</h3>
-                     <p class="text-gray-600 dark:text-gray-400">RBZ Jewellers · Full-time</p>
-                     <p class="text-sm text-gray-500 dark:text-gray-400">Feb 2020 - Mar 2021 · 1 yr 2 mos</p>
-                     <ul class="list-disc pl-5 mt-3 text-sm text-gray-700 dark:text-gray-300">
-                        <li>Prepared detailed Bills of Material (BOM)</li>
-                        <li>Generated comprehensive analysis reports from job cards</li>
-                        <li>Coordinated with supervisors for resource allocation</li>
-                     </ul>
-                     <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="tech-tag">MIS</span>
-                        <span class="tech-tag">Microsoft Excel</span>
-                        <span class="tech-tag">Reporting</span>
-                     </div>
-                  </div>
-               </div>
+                <!-- KanhaSoft -->
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/4">
+                        <h3 class="text-xl font-bold text-blue-600">Python Developer</h3>
+                        <p class="text-gray-600 mt-1">KanhaSoft · Full-time</p>
+                        <p class="text-sm text-gray-500 mt-1">Feb 2024 - Present · 1 yr 8 mos</p>
+                        <p class="text-sm text-gray-500">Ahmedabad, Gujarat, India · On-site</p>
+                    </div>
+                    <div class="md:w-3/4 bg-gray-50 p-6 rounded-lg">
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li>Developing and maintaining web applications and APIs using Django & Django REST Framework</li>
+                            <li>Handling database management and optimization tasks with PostgreSQL and Oracle</li>
+                            <li>Implementing task queues and scheduling periodic tasks with Celery & Celery Beat</li>
+                            <li>Monitoring and managing Celery tasks using Flower</li>
+                            <li>Utilizing containerization for application deployment and management with Docker</li>
+                            <li>Implementing error tracking and monitoring for application stability with Sentry</li>
+                            <li>Utilizing serverless computing for scalable solutions with AWS Lambda</li>
+                            <li>Web scraping for data extraction using Python Scrapy and Selenium</li>
+                            <li>Managing and integrating Walmart's third-party API for e-commerce solutions</li>
+                        </ul>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">Django REST Framework</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Celery</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Oracle</span>
+                            <span class="tech-tag">AWS Lambda</span>
+                            <span class="tech-tag">Scrapy</span>
+                            <span class="tech-tag">Selenium</span>
+                            <span class="tech-tag">Walmart API</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Peerbits -->
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/4">
+                        <h3 class="text-xl font-bold text-blue-600">Software Engineer</h3>
+                        <p class="text-gray-600 mt-1">Peerbits · Full-time</p>
+                        <p class="text-sm text-gray-500 mt-1">Nov 2022 - Jan 2024 · 1 yr 3 mos</p>
+                        <p class="text-sm text-gray-500">Ahmedabad, Gujarat, India · On-site</p>
+                    </div>
+                    <div class="md:w-3/4 bg-gray-50 p-6 rounded-lg">
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li>Led the design and implementation of scalable backend solutions using Python, Django, Celery, and Django Rest Framework</li>
+                            <li>Developed and optimized PostgreSQL database schemas for enhanced performance in production environments</li>
+                            <li>Streamlined deployment processes using Docker containers and integrated with Azure AD for authentication</li>
+                            <li>Automated workflows and task management with Celery and SFTP for efficient data transfer</li>
+                            <li>Managed version control through GitHub and Bitbucket for seamless collaboration</li>
+                            <li>Conducted code reviews and debugging sessions to ensure high-quality Python code</li>
+                        </ul>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">Celery</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Azure AD</span>
+                            <span class="tech-tag">GitHub</span>
+                            <span class="tech-tag">Bitbucket</span>
+                            <span class="tech-tag">SFTP</span>
+                            <span class="tech-tag">Redis</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- HorseTech Analytics -->
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="md:w-1/4">
+                        <h3 class="text-xl font-bold text-blue-600">Python Developer</h3>
+                        <p class="text-gray-600 mt-1">HorseTech Analytics · Full-time</p>
+                        <p class="text-sm text-gray-500 mt-1">Nov 2021 - Nov 2022 · 1 yr 1 mo</p>
+                        <p class="text-sm text-gray-500">Ahmedabad, Gujarat, India · On-site</p>
+                    </div>
+                    <div class="md:w-3/4 bg-gray-50 p-6 rounded-lg">
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li>Developed and optimized robust RESTful APIs for seamless integration with frontend applications</li>
+                            <li>Led the design and implementation of APIs for managing services, user accounts, and subscription systems</li>
+                            <li>Engineered scalable, high-performance backend components to support complex business logic</li>
+                            <li>Implemented custom event handling systems to address unique client requirements</li>
+                            <li>Played a pivotal role in developing server-side network infrastructure for millions of users</li>
+                        </ul>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">Django REST Framework</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">RESTful APIs</span>
+                            <span class="tech-tag">Backend Development</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </section>
+        </div>
+    </section>
 
-      <!-- SKILLS -->
-      <section id="skills" class="py-20 bg-gray-50 dark:bg-gray-900">
-         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center section-title mx-auto" data-aos="fade-up">
-               Skills & Tools
+    <!-- SKILLS -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title mx-auto">
+                Skills & Tools
             </h2>
             <div class="grid md:grid-cols-3 gap-8">
-               <div
-                  class="bg-white dark:bg-dark-card p-6 rounded-xl shadow-md border border-gray-100 dark:border-gray-700"
-                  data-aos="fade-right"
-               >
-                  <h4 class="font-semibold text-lg mb-4 text-blue-600 dark:text-blue-400">Languages & Frameworks</h4>
-                  <ul class="space-y-3">
-                     <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <i class="bx bxl-python text-blue-600 skill-icon"></i>
-                        Python
-                     </li>
-                     <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <i class="bx bxl-django text-green-600 skill-icon"></i>
-                        Django
-                     </li>
-                     <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <i class="bx bx-code-alt skill-icon text-yellow-600"></i> 
-                        DRF
-                     </li>
-                     <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <i class="bx bxl-html5 text-orange-600 skill-icon"></i>
-                        HTML
-                     </li>
-                     <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <i class="bx bxl-css3 text-blue-500 skill-icon"></i>
-                        CSS
-                     </li>
-                     <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <i class="bx bxl-javascript text-yellow-500 skill-icon"></i>
-                        JavaScript
-                     </li>
-                  </ul>
-               </div>
+                <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+                    <h4 class="font-semibold text-lg mb-4 text-blue-600">Languages & Frameworks</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <i class="bx bxl-python text-blue-600 skill-icon"></i>
+                            Python
+                        </li>
+                        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <i class="bx bxl-django text-green-600 skill-icon"></i>
+                            Django
+                        </li>
+                        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <i class="bx bx-code-alt skill-icon text-yellow-600"></i> 
+                            DRF
+                        </li>
+                        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <i class="bx bxl-html5 text-orange-600 skill-icon"></i>
+                            HTML
+                        </li>
+                        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <i class="bx bxl-css3 text-blue-500 skill-icon"></i>
+                            CSS
+                        </li>
+                        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <i class="bx bxl-javascript text-yellow-500 skill-icon"></i>
+                            JavaScript
+                        </li>
+                    </ul>
+                </div>
 
-               <div class="bg-white dark:bg-dark-card p-6 rounded-xl shadow-md border border-gray-100 dark:border-gray-700" data-aos="fade-up">
-                  <h4 class="font-semibold text-lg mb-4 text-blue-600 dark:text-blue-400">Backend & Async</h4>
-                  <ul class="space-y-3">
-                     <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <i class="bx bxl-postgresql text-blue-700 skill-icon"></i>
-                        PostgreSQL
-                     </li>
-                     <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <i class="bx bxs-data text-blue-500 skill-icon"></i>
-                        MySQL
-                     </li>
-                     <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <i class="bx bx-loader-circle skill-icon text-green-500"></i> 
-                        Celery
-                     </li>
-                     <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <i class="bx bxl-redis text-red-600 skill-icon"></i>
-                        Redis
-                     </li>
-                     <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <i class="bx bxl-docker text-blue-400 skill-icon"></i>
-                        Docker
-                     </li>
-                     <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <i class="bx bx-transfer-alt skill-icon text-gray-600 dark:text-gray-400"></i> 
-                        SFTP
-                     </li>
-                  </ul>
-               </div>
+                <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+                    <h4 class="font-semibold text-lg mb-4 text-blue-600">Backend & Async</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <i class="bx bxl-postgresql text-blue-700 skill-icon"></i>
+                            PostgreSQL
+                        </li>
+                        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <i class="bx bxs-data text-blue-500 skill-icon"></i>
+                            MySQL
+                        </li>
+                        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <i class="bx bx-loader-circle skill-icon text-green-500"></i> 
+                            Celery
+                        </li>
+                        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <i class="bx bxl-redis text-red-600 skill-icon"></i>
+                            Redis
+                        </li>
+                        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <i class="bx bxl-docker text-blue-400 skill-icon"></i>
+                            Docker
+                        </li>
+                        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <i class="bx bx-transfer-alt skill-icon text-gray-600"></i> 
+                            SFTP
+                        </li>
+                    </ul>
+                </div>
 
-               <div class="bg-white dark:bg-dark-card p-6 rounded-xl shadow-md border border-gray-100 dark:border-gray-700" data-aos="fade-left">
-                  <h4 class="font-semibold text-lg mb-4 text-blue-600 dark:text-blue-400">Tools</h4>
-                  <ul class="space-y-3">
-                     <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <i class="bx bxl-github skill-icon"></i>
-                        GitHub
-                     </li>
-                     <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <i class="bx bxl-bitbucket text-blue-600 skill-icon"></i>
-                        Bitbucket
-                     </li>
-                     <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <i class="bx bxs-cloud skill-icon text-blue-400"></i> 
-                        Azure AD
-                     </li>
-                     <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <i class="bx bxl-linux skill-icon text-yellow-600 dark:text-yellow-500"></i>
-                        Linux
-                     </li>
-                     <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <i class="bx bx-line-chart skill-icon text-green-500"></i> 
-                        Monitoring & Logging
-                     </li>
-                  </ul>
-               </div>
+                <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+                    <h4 class="font-semibold text-lg mb-4 text-blue-600">Tools</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <i class="bx bxl-github skill-icon"></i>
+                            GitHub
+                        </li>
+                        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <i class="bx bxl-bitbucket text-blue-600 skill-icon"></i>
+                            Bitbucket
+                        </li>
+                        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <i class="bx bxs-cloud skill-icon text-blue-400"></i> 
+                            Azure AD
+                        </li>
+                        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <i class="bx bxl-linux skill-icon text-yellow-600"></i>
+                            Linux
+                        </li>
+                        <li class="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors">
+                            <i class="bx bx-line-chart skill-icon text-green-500"></i> 
+                            Monitoring & Logging
+                        </li>
+                    </ul>
+                </div>
             </div>
-         </div>
-      </section>
+        </div>
+    </section>
 
-      <!-- CONTACT -->
-      <section id="contact" class="py-20 bg-white dark:bg-dark-bg">
-         <div class="max-w-3xl mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center section-title mx-auto">Contact</h2>
-            <div class="bg-gray-50 dark:bg-dark-card rounded-xl shadow-md p-8 border border-gray-100 dark:border-gray-700">
-               <form
-                  action="https://formspree.io/f/your_form_id"
-                  method="POST"
-                  class="space-y-6"
-               >
-                  <div>
-                     <label for="name" class="block mb-2 text-sm font-medium">Your Name</label>
-                     <input
-                        id="name"
-                        name="name"
-                        required
-                        placeholder="John Doe"
-                        class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                     />
-                  </div>
-                  <div>
-                     <label for="email" class="block mb-2 text-sm font-medium">Your Email</label>
-                     <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        required
-                        placeholder="john@example.com"
-                        class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                     />
-                  </div>
-                  <div>
-                     <label for="message" class="block mb-2 text-sm font-medium">Your Message</label>
-                     <textarea
-                        id="message"
-                        name="message"
-                        rows="5"
-                        required
-                        placeholder="Hello, I would like to talk about..."
-                        class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                     ></textarea>
-                  </div>
-                  <button
-                     type="submit"
-                     class="px-8 py-3 rounded-full accent text-white font-semibold shadow hover:shadow-lg transition-all"
-                  >
-                     Send Message
-                  </button>
-               </form>
-               <p class="mt-6 text-gray-600 dark:text-gray-400 text-center">
-                  Or email me directly at:
-                  <a
-                     href="mailto:parthdadhaniya079@gmail.com"
-                     class="text-blue-600 dark:text-blue-400 underline hover:no-underline"
-                     >parthdadhaniya079@gmail.com</a
-                  >
-               </p>
+    <!-- CONTACT SECTION WITH FORMSPREE INTEGRATION -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center section-title mx-auto">Contact Me</h2>
+            
+            <!-- Form Success Message -->
+            <div id="formSuccess" class="form-success">
+                <strong>Thank you for your message!</strong> I'll get back to you as soon as possible.
             </div>
-         </div>
-      </section>
+            
+            <div class="bg-gray-50 rounded-xl shadow-md p-8 border border-gray-100">
+                <h3 class="text-xl font-bold mb-6 text-blue-600">Send a Message</h3>
+                
+                <!-- Form with your Formspree endpoint -->
+                <form id="contactForm" action="https://formspree.io/f/xjkezpqa" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name" class="block mb-2 text-sm font-medium">Your Name</label>
+                        <input id="name" name="name" required placeholder="John Doe" 
+                               class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-2 text-sm font-medium">Your Email</label>
+                        <input id="email" name="email" type="email" required placeholder="john@example.com" 
+                               class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                    </div>
+                    <div>
+                        <label for="message" class="block mb-2 text-sm font-medium">Your Message</label>
+                        <textarea id="message" name="message" rows="5" required 
+                                  placeholder="Hello, I would like to talk about..." 
+                                  class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"></textarea>
+                    </div>
+                    <button type="submit" class="px-8 py-3 rounded-full accent text-white font-semibold shadow hover:shadow-lg transition-all">
+                        Send Message
+                    </button>
+                </form>
+                
+                <div class="mt-8 pt-6 border-t border-gray-200">
+                    <h4 class="font-semibold text-gray-700 mb-4">Alternative Contact Methods</h4>
+                    <div class="space-y-2">
+                        <p class="flex items-center gap-2">
+                            <i class="bx bx-envelope text-blue-600"></i>
+                            <a href="mailto:parthdadhaniya079@gmail.com" class="text-blue-600 hover:underline">
+                                parthdadhaniya079@gmail.com
+                            </a>
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <i class="bx bx-phone text-blue-600"></i>
+                            <a href="tel:+917874046823" class="text-blue-600 hover:underline">
+                                +91 7874046823
+                            </a>
+                        </p>
+                        <p class="flex items-center gap-2">
+                            <i class="bx bxl-linkedin-square text-blue-600"></i>
+                            <a href="https://linkedin.com" target="_blank" class="text-blue-600 hover:underline">
+                                Connect on LinkedIn
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <!-- FOOTER -->
-      <footer class="py-10 text-center text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-900">
-         <p>© 2025 Parth Dadhaniya — Built with ❤️ using TailwindCSS</p>
-      </footer>
+    <!-- FOOTER -->
+    <footer class="py-10 text-center text-gray-500 bg-gray-100">
+        <p>© 2025 Parth Dadhaniya — Built with ❤️ using TailwindCSS</p>
+    </footer>
 
-      <!-- Scripts -->
-      <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-      <script>
-         // Initialize animations
-         AOS.init({ 
-            duration: 800, 
-            once: true,
-            offset: 50
-         });
-         
-         // Initialize typing effect
-         new Typed("#typed", {
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        // Initialize typing effect
+        new Typed("#typed", {
             strings: [
-               "Python Developer",
-               "Django Specialist",
-               "Backend Engineer",
+                "Python Developer",
+                "Django Specialist",
+                "Backend Engineer",
             ],
             typeSpeed: 60,
             backSpeed: 40,
             backDelay: 1400,
             loop: true,
-         });
-         
-         // Theme toggle functionality
-         const themeBtn = document.getElementById("themeBtn");
-         const themeIcon = document.getElementById("themeIcon");
-         const body = document.body;
-         
-         // Check for saved theme preference or respect OS preference
-         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            body.classList.add('dark');
-            themeIcon.classList.replace('bx-moon', 'bx-sun');
-         } else {
-            body.classList.remove('dark');
-            themeIcon.classList.replace('bx-sun', 'bx-moon');
-         }
-         
-         themeBtn.addEventListener("click", () => {
-            if (body.classList.contains("dark")) {
-               body.classList.remove("dark");
-               localStorage.theme = 'light';
-               themeIcon.classList.replace('bx-sun', 'bx-moon');
-            } else {
-               body.classList.add("dark");
-               localStorage.theme = 'dark';
-               themeIcon.classList.replace('bx-moon', 'bx-sun');
-            }
-         });
-         
-         // Mobile menu functionality
-         const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-         const mobileMenu = document.getElementById("mobileMenu");
-         
-         mobileMenuBtn.addEventListener("click", () => {
+        });
+        
+        // Mobile menu functionality
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+        
+        mobileMenuBtn.addEventListener("click", () => {
             mobileMenu.classList.toggle("hidden");
             const icon = mobileMenuBtn.querySelector("i");
             if (icon.classList.contains("bx-menu")) {
-               icon.classList.replace("bx-menu", "bx-x");
+                icon.classList.replace("bx-menu", "bx-x");
             } else {
-               icon.classList.replace("bx-x", "bx-menu");
+                icon.classList.replace("bx-x", "bx-menu");
             }
-         });
-         
-         // Navbar scroll effect
-         const navbar = document.getElementById("navbar");
-         window.addEventListener("scroll", () => {
-            if (window.scrollY > 50) {
-               navbar.classList.add("shadow-md", "py-2");
-               navbar.classList.remove("py-3");
-            } else {
-               navbar.classList.remove("shadow-md", "py-2");
-               navbar.classList.add("py-3");
-            }
-         });
-      </script>
-   </body>
+        });
+        
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            // Show success message
+            document.getElementById('formSuccess').style.display = 'block';
+            
+            // Reset form
+            setTimeout(() => {
+                this.reset();
+            }, 1000);
+        });
+    </script>
+</body>
 </html>
