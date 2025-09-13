@@ -1,123 +1,248 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parth Dadhaniya | Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Parth Dadhaniya — Portfolio</title>
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- AOS for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Typed.js for typing effect -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
   <style>
-    body { font-family: Arial, sans-serif; }
-    header { background: #0d6efd; color: #fff; padding: 60px 0; }
-    header h1 { font-size: 2.5rem; }
-    section { padding: 60px 0; }
-    .timeline { border-left: 3px solid #0d6efd; margin-left: 20px; padding-left: 20px; }
-    .timeline .job { margin-bottom: 30px; }
-    footer { background: #f8f9fa; padding: 20px 0; text-align: center; }
+    /* small custom styles */
+    .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(6px); }
+    .profile-ring { box-shadow: 0 8px 30px rgba(2,6,23,0.4); }
+    .accent { background: linear-gradient(90deg,#06b6d4,#7c3aed); }
   </style>
 </head>
-<body>
 
-  <!-- Header -->
-  <header class="text-center">
-    <h1>Parth Dadhaniya</h1>
-    <p>Python/Django Developer | Ahmedabad, India</p>
-    <a href="mailto:parthdadhaniya079@gmail.com" class="btn btn-light btn-sm">Email Me</a>
+<body class="bg-gray-900 text-slate-200 antialiased">
+
+  <!-- NAV -->
+  <nav class="fixed w-full z-40 top-4 px-6">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <a href="#home" class="text-white font-semibold text-lg">Parth Dadhaniya</a>
+      <div class="hidden md:flex gap-6 items-center">
+        <a href="#projects" class="hover:text-white text-slate-300">Projects</a>
+        <a href="#experience" class="hover:text-white text-slate-300">Experience</a>
+        <a href="#skills" class="hover:text-white text-slate-300">Skills</a>
+        <a href="#contact" class="hover:text-white text-slate-300">Contact</a>
+        <button id="themeBtn" class="px-3 py-1 rounded-md bg-slate-800/30 hover:bg-slate-800/50">🌙</button>
+      </div>
+      <div class="md:hidden">
+        <button id="navToggle" class="p-2 bg-slate-800/30 rounded-md">☰</button>
+      </div>
+    </div>
+    <!-- mobile nav -->
+    <div id="mobileNav" class="max-w-5xl mx-auto mt-3 hidden md:hidden">
+      <div class="flex flex-col gap-2 bg-slate-800/40 p-4 rounded-lg">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="min-h-screen flex items-center justify-center">
+    <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center">
+
+      <!-- left: text -->
+      <div class="space-y-6" data-aos="fade-right">
+        <p class="inline-block px-3 py-1 rounded-md text-sm font-medium text-slate-900 bg-emerald-300/80">Hello, I'm</p>
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Parth Dadhaniya</h1>
+        <div class="text-xl text-slate-300">
+          <span id="typed" class="font-semibold"></span>
+        </div>
+
+        <p class="text-slate-400 max-w-xl">Backend-focused Software Engineer building scalable systems with Python and Django. I love creating clean APIs, automation pipelines and async systems using Celery & Redis.</p>
+
+        <div class="flex gap-4">
+          <a href="#projects" class="inline-flex items-center gap-2 px-5 py-3 rounded-full accent text-white font-semibold shadow-lg hover:opacity-95">See Projects</a>
+          <a href="mailto:parthdadhaniya079@gmail.com" class="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-slate-700 text-slate-200">Email Me</a>
+        </div>
+
+        <div class="mt-4 flex gap-4">
+          <a href="https://github.com/parthdadhaniya" target="_blank" class="text-2xl hover:text-white"><i class='bx bxl-github'></i></a>
+          <a href="https://www.linkedin.com" target="_blank" class="text-2xl hover:text-white"><i class='bx bxl-linkedin-square'></i></a>
+        </div>
+      </div>
+
+      <!-- right: profile card -->
+      <div class="relative" data-aos="fade-left">
+        <div class="glass rounded-2xl p-6 profile-ring">
+          <div class="flex items-center gap-4">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=60" alt="profile" class="w-28 h-28 rounded-full object-cover border-4 border-white">
+            <div>
+              <h3 class="text-xl font-bold">Parth Dadhaniya</h3>
+              <p class="text-slate-300">Software Engineer • Python / Django</p>
+              <p class="text-sm text-slate-400 mt-2">Ahmedabad, Gujarat</p>
+            </div>
+          </div>
+
+          <div class="mt-6 grid grid-cols-2 gap-4">
+            <div class="p-4 bg-slate-800/40 rounded-lg">
+              <p class="text-xs text-slate-400">Experience</p>
+              <p class="font-semibold">5+ yrs</p>
+            </div>
+            <div class="p-4 bg-slate-800/40 rounded-lg">
+              <p class="text-xs text-slate-400">Primary Stack</p>
+              <p class="font-semibold">Django, DRF, Celery</p>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <h4 class="text-sm text-slate-400">Contact</h4>
+            <p class="text-sm">parthdadhaniya079@gmail.com</p>
+            <p class="text-sm">+91 7874046823</p>
+          </div>
+        </div>
+
+        <!-- decorative gradient circle -->
+        <div class="absolute -right-8 -bottom-8 w-40 h-40 rounded-full opacity-30" style="background:linear-gradient(90deg,#06b6d4,#7c3aed)"></div>
+      </div>
+    </div>
   </header>
 
-  <!-- About -->
-  <section id="about" class="container text-center">
-    <h2>About Me</h2>
-    <p>
-      Software Engineer with strong experience in Python, Django, REST APIs, Celery,
-      PostgreSQL, and Docker. Passionate about building scalable backend systems
-      and solving business problems with technology.
-    </p>
-  </section>
+  <!-- PROJECTS -->
+  <section id="projects" class="py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-6 text-center" data-aos="fade-up">Selected Projects</h2>
+      <div class="grid md:grid-cols-2 gap-6">
 
-  <!-- Skills -->
-  <section id="skills" class="bg-light">
-    <div class="container">
-      <h2 class="text-center mb-4">Skills</h2>
-      <div class="row text-center">
-        <div class="col-md-3">Python</div>
-        <div class="col-md-3">Django / DRF</div>
-        <div class="col-md-3">Celery / Redis</div>
-        <div class="col-md-3">PostgreSQL / MySQL</div>
-        <div class="col-md-3">Docker</div>
-        <div class="col-md-3">Azure AD</div>
-        <div class="col-md-3">GitHub / BitBucket</div>
-        <div class="col-md-3">HTML / CSS / Bootstrap</div>
+        <!-- Project card -->
+        <article class="bg-slate-800/30 rounded-2xl p-6 hover:scale-105 transform transition" data-aos="zoom-in">
+          <img src="https://images.unsplash.com/photo-1526378725873-0b4f80f7d8a1?auto=format&fit=crop&w=1200&q=60" alt="project" class="w-full h-44 object-cover rounded-lg mb-4">
+          <h3 class="text-xl font-bold">Mitsui India — Sales Module</h3>
+          <p class="text-slate-300 mt-2">Developed a dynamic sales management module in Django. Implemented custom workflows to handle client-specific requirements, integrated APIs for seamless data flow, and optimized processes for efficiency. Ensured smooth integration with existing enterprise systems.</p>
+        </article>
+
+        <article class="bg-slate-800/30 rounded-2xl p-6 hover:scale-105 transform transition" data-aos="zoom-in" data-aos-delay="80">
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=60" alt="godrej" class="w-full h-44 object-cover rounded-lg mb-4">
+          <h3 class="text-xl font-bold">Godrej Agrovet — Admin Platform</h3>
+          <p class="text-slate-300 mt-2">Built a robust admin panel with user & permission management, form validations, and background tasks. Implemented CRUD operations, integrated third-party modules, and enhanced performance by optimizing Django ORM queries and middleware.</p>
+        </article>
+
+        <article class="bg-slate-800/30 rounded-2xl p-6 hover:scale-105 transform transition" data-aos="zoom-in" data-aos-delay="160">
+          <img src="https://images.unsplash.com/photo-1591696331116-923a8c8f0d63?auto=format&fit=crop&w=1200&q=60" alt="hundred" class="w-full h-44 object-cover rounded-lg mb-4">
+          <h3 class="text-xl font-bold">Hundred Offers — Vendor Tools</h3>
+          <p class="text-slate-300 mt-2">Engineered automation tools for vendor onboarding and QC. Added Google Maps integration for address validation, duplicate detection, and logo/image verification. Designed utilities to streamline vendor data entry and improve operational accuracy.</p>
+        </article>
+
+        <article class="bg-slate-800/30 rounded-2xl p-6 hover:scale-105 transform transition" data-aos="zoom-in" data-aos-delay="240">
+          <img src="https://images.unsplash.com/photo-1496318447583-f524534e9ce1?auto=format&fit=crop&w=1200&q=60" alt="doctor" class="w-full h-44 object-cover rounded-lg mb-4">
+          <h3 class="text-xl font-bold">Doctor Orio (Training)</h3>
+          <p class="text-slate-300 mt-2">Developed a training application for patient-doctor interactions. Implemented appointment booking, approval/rejection workflows, and used Django ORM to integrate with PostgreSQL. Built clean UI using Django Template Language.</p>
+        </article>
+
       </div>
     </div>
   </section>
 
-  <!-- Experience -->
-  <section id="experience" class="container">
-    <h2 class="text-center mb-4">Experience</h2>
-    <div class="timeline">
-      <div class="job">
-        <h5>Software Engineer (Python) - Peerbits Solutions PVT. LTD.</h5>
-        <p><small>Nov 2022 - Present</small></p>
-        <p>Worked on Django, Celery, SFTP, Docker, Azure AD, DRF, and PostgreSQL. Managed deployments and troubleshooting.</p>
-      </div>
-      <div class="job">
-        <h5>Python Developer - Horsetech Analytics</h5>
-        <p><small>Nov 2021 - Oct 2022</small></p>
-        <p>Implemented REST APIs, developed subscription modules, and maintained backend components.</p>
-      </div>
-      <div class="job">
-        <h5>Data Management (MIS Excel) - Hundred Platform</h5>
-        <p><small>Mar 2021 - Oct 2021</small></p>
-        <p>Managed customer & merchant data, resolved data errors, and maintained records.</p>
-      </div>
-      <div class="job">
-        <h5>Data Analysis - RBZ Private Limited</h5>
-        <p><small>Feb 2020 - Mar 2021</small></p>
-        <p>Prepared bills of material, analysis reports, and coordinated with planning teams.</p>
-      </div>
-      <div class="job">
-        <h5>MIS Executive - Tech Mahindra</h5>
-        <p><small>Feb 2019 - Feb 2020</small></p>
-        <p>Handled customer calls, maintained records, and resolved queries.</p>
+  <!-- EXPERIENCE -->
+  <section id="experience" class="py-20 bg-gradient-to-b from-transparent to-slate-900/40">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-10 text-center" data-aos="fade-up">Experience Timeline</h2>
+      <div class="relative">
+        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-px bg-slate-700 h-full"></div>
+        <div class="space-y-12">
+
+          <!-- item -->
+          <div class="md:flex md:items-center md:gap-8" data-aos="fade-up">
+            <div class="md:w-1/2 md:pr-8">
+              <h3 class="text-xl font-bold">Software Engineer (Python) — Peerbits Solutions</h3>
+              <p class="text-slate-400 text-sm">Nov 2022 - Present</p>
+              <p class="mt-2 text-slate-300">Worked on Django, Celery, SFTP, Docker, Azure AD, DRF & PostgreSQL. Managed deployments and CI workflows.</p>
+            </div>
+            <div class="md:w-1/2 md:pl-8 flex md:justify-end">
+              <div class="bg-slate-800/30 p-4 rounded-lg shadow">Ahmedabad, India</div>
+            </div>
+          </div>
+
+          <div class="md:flex md:items-center md:gap-8" data-aos="fade-up" data-aos-delay="80">
+            <div class="md:w-1/2 md:pr-8">
+              <h3 class="text-xl font-bold">Python Developer — Horsetech Analytics</h3>
+              <p class="text-slate-400 text-sm">Nov 2021 - Oct 2022</p>
+              <p class="mt-2 text-slate-300">Implemented REST APIs, managed backend services and subscription modules.</p>
+            </div>
+            <div class="md:w-1/2 md:pl-8 flex md:justify-end">
+              <div class="bg-slate-800/30 p-4 rounded-lg shadow">Ahmedabad, India</div>
+            </div>
+          </div>
+
+          <div class="md:flex md:items-center md:gap-8" data-aos="fade-up" data-aos-delay="160">
+            <div class="md:w-1/2 md:pr-8">
+              <h3 class="text-xl font-bold">Data Analysis — RBZ Private Limited</h3>
+              <p class="text-slate-400 text-sm">Feb 2020 - Mar 2021</p>
+              <p class="mt-2 text-slate-300">Prepared BOMs, reports and coordinated planning & tracking teams.</p>
+            </div>
+            <div class="md:w-1/2 md:pl-8 flex md:justify-end">
+              <div class="bg-slate-800/30 p-4 rounded-lg shadow">Ahmedabad, India</div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects -->
-  <section id="projects" class="bg-light">
-    <div class="container">
-      <h2 class="text-center mb-4">Projects</h2>
-      <ul>
-        <li><b>Mitsui India:</b> Designed & developed dynamic sales module in Django.</li>
-        <li><b><a href="https://opp-nms.godrejagrovet.com" target="_blank">Godrej Agrovet:</a></b> Built admin panel, forms, and custom modules.</li>
-        <li><b><a href="https://www.hundredoffers.com" target="_blank">Hundred Offers:</a></b> Vendor management, logo verification, automation tools.</li>
-        <li><b>Doctor Orio (Training):</b> Appointment booking system using Django & PostgreSQL.</li>
-      </ul>
+  <!-- SKILLS -->
+  <section id="skills" class="py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-6 text-center" data-aos="fade-up">Skills & Tools</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-slate-800/30 p-6 rounded-xl" data-aos="fade-right">
+          <h4 class="font-semibold">Languages & Frameworks</h4>
+          <ul class="mt-4 space-y-2 text-slate-300">
+            <li>Python • Django • DRF</li>
+            <li>HTML • CSS • JavaScript</li>
+          </ul>
+        </div>
+        <div class="bg-slate-800/30 p-6 rounded-xl" data-aos="fade-up">
+          <h4 class="font-semibold">Backend & Async</h4>
+          <ul class="mt-4 space-y-2 text-slate-300">
+            <li>Celery • Redis • PostgreSQL • MySQL</li>
+            <li>SFTP • Docker • CI/CD</li>
+          </ul>
+        </div>
+        <div class="bg-slate-800/30 p-6 rounded-xl" data-aos="fade-left">
+          <h4 class="font-semibold">Tools</h4>
+          <ul class="mt-4 space-y-2 text-slate-300">
+            <li>GitHub • Bitbucket • Azure AD</li>
+            <li>Linux • Monitoring • Logging</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Education -->
-  <section id="education" class="container">
-    <h2 class="text-center mb-4">Education & Certifications</h2>
-    <ul>
-      <li><b>B.Com</b> - Gardi Arts & Commerce College, Rajkot (2011-2014)</li>
-      <li>Python Developer Certified - Tops Technology (Certificate No: 267692)</li>
-    </ul>
-  </section>
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 bg-gradient-to-r from-indigo-700 to-emerald-600 text-slate-900">
+    <div class="max-w-3xl mx-auto px-6 bg-white/90 rounded-2xl p-8" data-aos="zoom-in">
+      <h2 class="text-2xl font-bold mb-4">Let's work together</h2>
+      <p class="text-slate-700 mb-6">Want to collaborate or hire me for backend work? Send a message below and I'll respond within a day.</p>
 
-  <!-- Contact -->
-  <section id="contact" class="bg-light">
-    <div class="container text-center">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:parthdadhaniya079@gmail.com">parthdadhaniya079@gmail.com</a></p>
-      <p>Phone: +91 7874046823</p>
+      <!-- NOTE: Replace THE_FORM_ACTION with your Formspree endpoint or use mailto (simple) -->
+      <form action="https://formspree.io/f/your_form_id" method="POST" class="space-y-4">
+        <div class="grid md:grid-cols-2 gap-4">
+          <input name="name" required placeholder="Your name" class="p-3 rounded-md border border-slate-300" />
+          <input name="email" type="email" required placeholder="Your email" class="p-3 rounded-md border border-slate-300" />
+        </div>
+        <textarea name="message" rows="5" required placeholder="Your message" class="w-full p-3 rounded-md border border-slate-300"></textarea>
+        <button type="submit" class="px-6 py-3 rounded-full accent text-white font-semibold">Send Message</button>
+      </form>
+
+      <p class="text-sm text-slate-600 mt-4">Or email directly: <a href="mailto:parthdadhaniya079@gmail.com" class="underline">parthdadhaniya079@gmail.com</a></p>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Parth Dadhaniya | Built with ❤️ using Bootstrap</p>
-  </footer>
-
-</body>
-</html>
