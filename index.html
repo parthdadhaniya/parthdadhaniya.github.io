@@ -1,168 +1,369 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Parth Dadhaniya — Portfolio</title>
+   <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Parth Dadhaniya — Portfolio</title>
 
-  <!-- Tailwind via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+      <!-- Tailwind via CDN -->
+      <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Icons -->
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+      <!-- Icons -->
+      <link
+         href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+         rel="stylesheet"
+      />
 
-  <!-- AOS for scroll animations -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+      <!-- AOS for scroll animations -->
+      <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-  <!-- Typed.js for typing effect -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+      <!-- Typed.js for typing effect -->
+      <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-  <style>
-    .accent { background: linear-gradient(90deg,#06b6d4,#7c3aed); }
-    .glass { background: rgba(255,255,255,0.6); backdrop-filter: blur(6px); }
-  </style>
-</head>
+      <style>
+         .accent {
+            background: linear-gradient(90deg, #06b6d4, #7c3aed);
+         }
+         .glass {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(6px);
+         }
+      </style>
+   </head>
 
-<body class="bg-white text-gray-800 antialiased">
+   <body class="bg-white text-gray-800 antialiased">
+      <!-- NAV -->
+      <nav
+         class="fixed w-full z-40 top-0 bg-white/80 backdrop-blur border-b border-gray-200"
+      >
+         <div
+            class="max-w-5xl mx-auto flex items-center justify-between px-6 py-3"
+         >
+            <a href="#home" class="font-bold text-lg">Parth Dadhaniya</a>
+            <div class="hidden md:flex gap-6 items-center">
+               <a href="#projects" class="hover:text-blue-600">Projects</a>
+               <a href="#experience" class="hover:text-blue-600">Experience</a>
+               <a href="#skills" class="hover:text-blue-600">Skills</a>
+               <a href="#contact" class="hover:text-blue-600">Contact</a>
+               <button id="themeBtn" class="px-3 py-1 rounded-md bg-gray-100">
+                  🌙
+               </button>
+            </div>
+         </div>
+      </nav>
 
-  <!-- NAV -->
-  <nav class="fixed w-full z-40 top-0 bg-white/80 backdrop-blur border-b border-gray-200">
-    <div class="max-w-5xl mx-auto flex items-center justify-between px-6 py-3">
-      <a href="#home" class="font-bold text-lg">Parth Dadhaniya</a>
-      <div class="hidden md:flex gap-6 items-center">
-        <a href="#projects" class="hover:text-blue-600">Projects</a>
-        <a href="#experience" class="hover:text-blue-600">Experience</a>
-        <a href="#skills" class="hover:text-blue-600">Skills</a>
-        <a href="#contact" class="hover:text-blue-600">Contact</a>
-        <button id="themeBtn" class="px-3 py-1 rounded-md bg-gray-100">🌙</button>
-      </div>
-    </div>
-  </nav>
+      <!-- HERO -->
+      <header
+         id="home"
+         class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-indigo-100 pt-20"
+      >
+         <div
+            class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center"
+         >
+            <div class="space-y-6" data-aos="fade-right">
+               <p class="text-blue-600 font-medium">Hello, I'm</p>
+               <h1 class="text-4xl md:text-5xl font-extrabold">
+                  Parth Dadhaniya
+               </h1>
+               <div class="text-xl text-gray-700">
+                  <span id="typed" class="font-semibold"></span>
+               </div>
+               <p class="text-gray-600 max-w-xl">
+                  Backend-focused Software Engineer building scalable systems
+                  with Python and Django. I love creating clean APIs, automation
+                  pipelines and async systems using Celery & Redis.
+               </p>
+               <div class="flex gap-4">
+                  <a
+                     href="#projects"
+                     class="px-6 py-3 rounded-full accent text-white font-semibold shadow"
+                     >See Projects</a
+                  >
+                  <a
+                     href="mailto:parthdadhaniya079@gmail.com"
+                     class="px-6 py-3 rounded-full border border-gray-400"
+                     >Email Me</a
+                  >
+               </div>
+               <div class="mt-4 flex gap-4 text-2xl">
+                  <a href="https://github.com/parthdadhaniya" target="_blank"
+                     ><i class="bx bxl-github"></i
+                  ></a>
+                  <a href="https://www.linkedin.com" target="_blank"
+                     ><i class="bx bxl-linkedin-square"></i
+                  ></a>
+               </div>
+            </div>
+            <div class="relative" data-aos="fade-left">
+               <div class="glass rounded-2xl p-6 shadow-lg">
+                  <h3 class="text-xl font-bold">
+                     Software Engineer • Python / Django
+                  </h3>
+                  <p class="text-gray-700">Ahmedabad, Gujarat</p>
+                  <div class="mt-4">
+                     <p class="font-semibold">Experience: 5+ years</p>
+                     <p class="font-semibold">
+                        Primary Stack: Django, DRF, Celery
+                     </p>
+                     <p class="mt-2">Email: parthdadhaniya079@gmail.com</p>
+                     <p>Phone: +91 7874046823</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
 
-  <!-- HERO -->
-  <header id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 to-indigo-100 pt-20">
-    <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center">
-      <div class="space-y-6" data-aos="fade-right">
-        <p class="text-blue-600 font-medium">Hello, I'm</p>
-        <h1 class="text-4xl md:text-5xl font-extrabold">Parth Dadhaniya</h1>
-        <div class="text-xl text-gray-700">
-          <span id="typed" class="font-semibold"></span>
-        </div>
-        <p class="text-gray-600 max-w-xl">
-          Backend-focused Software Engineer building scalable systems with Python and Django.
-          I love creating clean APIs, automation pipelines and async systems using Celery & Redis.
-        </p>
-        <div class="flex gap-4">
-          <a href="#projects" class="px-6 py-3 rounded-full accent text-white font-semibold shadow">See Projects</a>
-          <a href="mailto:parthdadhaniya079@gmail.com" class="px-6 py-3 rounded-full border border-gray-400">Email Me</a>
-        </div>
-        <div class="mt-4 flex gap-4 text-2xl">
-          <a href="https://github.com/parthdadhaniya" target="_blank"><i class='bx bxl-github'></i></a>
-          <a href="https://www.linkedin.com" target="_blank"><i class='bx bxl-linkedin-square'></i></a>
-        </div>
-      </div>
-      <div class="relative" data-aos="fade-left">
-        <div class="glass rounded-2xl p-6 shadow-lg">
-          <h3 class="text-xl font-bold">Software Engineer • Python / Django</h3>
-          <p class="text-gray-700">Ahmedabad, Gujarat</p>
-          <div class="mt-4">
-            <p class="font-semibold">Experience: 5+ years</p>
-            <p class="font-semibold">Primary Stack: Django, DRF, Celery</p>
-            <p class="mt-2">Email: parthdadhaniya079@gmail.com</p>
-            <p>Phone: +91 7874046823</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+      <!-- PROJECTS -->
+      <section id="projects" class="py-20 bg-gray-50">
+         <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-10 text-center">Projects</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+               <article
+                  class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition"
+               >
+                  <h3 class="text-xl font-bold">Mitsui India — Sales Module</h3>
+                  <p class="text-gray-600 mt-2">
+                     Developed a dynamic sales management module in Django.
+                     Implemented custom workflows, API integrations, and data
+                     syncing for efficiency and seamless enterprise integration.
+                  </p>
+               </article>
+               <article
+                  class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition"
+               >
+                  <h3 class="text-xl font-bold">
+                     Godrej Agrovet — Admin Platform
+                  </h3>
+                  <p class="text-gray-600 mt-2">
+                     Built an admin panel with user & permission management,
+                     CRUD operations, and form validations. Optimized Django ORM
+                     queries and added background task handling.
+                  </p>
+               </article>
+               <article
+                  class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition"
+               >
+                  <h3 class="text-xl font-bold">
+                     Hundred Offers — Vendor Tools
+                  </h3>
+                  <p class="text-gray-600 mt-2">
+                     Created vendor onboarding & QC tools with Google Maps
+                     integration for address validation, duplicate detection,
+                     and logo/image verification to streamline operations.
+                  </p>
+               </article>
+               <article
+                  class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition"
+               >
+                  <h3 class="text-xl font-bold">Doctor Orio (Training)</h3>
+                  <p class="text-gray-600 mt-2">
+                     Developed a doctor-patient appointment booking system using
+                     Django ORM and PostgreSQL with approval/rejection workflows
+                     and a clean UI built in Django Templates.
+                  </p>
+               </article>
+            </div>
+         </div>
+      </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="py-20 bg-gray-50">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-3xl font-bold mb-10 text-center">Projects</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <article class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-bold">Mitsui India — Sales Module</h3>
-          <p class="text-gray-600 mt-2">Developed a dynamic sales management module in Django. Implemented custom workflows, API integrations, and data syncing for efficiency and seamless enterprise integration.</p>
-        </article>
-        <article class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-bold">Godrej Agrovet — Admin Platform</h3>
-          <p class="text-gray-600 mt-2">Built an admin panel with user & permission management, CRUD operations, and form validations. Optimized Django ORM queries and added background task handling.</p>
-        </article>
-        <article class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-bold">Hundred Offers — Vendor Tools</h3>
-          <p class="text-gray-600 mt-2">Created vendor onboarding & QC tools with Google Maps integration for address validation, duplicate detection, and logo/image verification to streamline operations.</p>
-        </article>
-        <article class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-bold">Doctor Orio (Training)</h3>
-          <p class="text-gray-600 mt-2">Developed a doctor-patient appointment booking system using Django ORM and PostgreSQL with approval/rejection workflows and a clean UI built in Django Templates.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+      <!-- EXPERIENCE -->
+      <section id="experience" class="py-20">
+         <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-10 text-center">Experience</h2>
+            <ul class="space-y-6">
+               <li>
+                  <b>Peerbits Solutions</b> — Software Engineer (Python) | Nov
+                  2022 - Present
+               </li>
+               <li>
+                  <b>Horsetech Analytics</b> — Python Developer | Nov 2021 - Oct
+                  2022
+               </li>
+               <li>
+                  <b>RBZ Private Limited</b> — Data Analysis | Feb 2020 - Mar
+                  2021
+               </li>
+            </ul>
+         </div>
+      </section>
 
-  <!-- EXPERIENCE -->
-  <section id="experience" class="py-20">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-3xl font-bold mb-10 text-center">Experience</h2>
-      <ul class="space-y-6">
-        <li><b>Peerbits Solutions</b> — Software Engineer (Python) | Nov 2022 - Present</li>
-        <li><b>Horsetech Analytics</b> — Python Developer | Nov 2021 - Oct 2022</li>
-        <li><b>RBZ Private Limited</b> — Data Analysis | Feb 2020 - Mar 2021</li>
-      </ul>
-    </div>
-  </section>
+      <!-- SKILLS -->
+      <section id="skills" class="py-20">
+         <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-6 text-center" data-aos="fade-up">
+               Skills & Tools
+            </h2>
+            <div class="grid md:grid-cols-3 gap-6">
+               <div
+                  class="bg-slate-800/30 p-6 rounded-xl"
+                  data-aos="fade-right"
+               >
+                  <h4 class="font-semibold">Languages & Frameworks</h4>
+                  <ul class="mt-4 space-y-3 text-slate-300">
+                     <li class="flex items-center gap-2">
+                        <i class="devicon-python-plain colored skill-icon"></i>
+                        Python
+                     </li>
+                     <li class="flex items-center gap-2">
+                        <i class="devicon-django-plain colored skill-icon"></i>
+                        Django
+                     </li>
+                     <li class="flex items-center gap-2">
+                        <i class="bx bx-code-alt skill-icon"></i> DRF
+                     </li>
+                     <li class="flex items-center gap-2">
+                        <i class="devicon-html5-plain colored skill-icon"></i>
+                        HTML
+                     </li>
+                     <li class="flex items-center gap-2">
+                        <i class="devicon-css3-plain colored skill-icon"></i>
+                        CSS
+                     </li>
+                     <li class="flex items-center gap-2">
+                        <i
+                           class="devicon-javascript-plain colored skill-icon"
+                        ></i>
+                        JavaScript
+                     </li>
+                  </ul>
+               </div>
 
-  <!-- SKILLS -->
-  <section id="skills" class="py-20 bg-gray-50">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-      <h2 class="text-3xl font-bold mb-10">Skills</h2>
-      <p>Python • Django • DRF • Celery • Redis • PostgreSQL • MySQL • Docker • GitHub • Azure AD • HTML • CSS • Bootstrap</p>
-    </div>
-  </section>
+               <div class="bg-slate-800/30 p-6 rounded-xl" data-aos="fade-up">
+                  <h4 class="font-semibold">Backend & Async</h4>
+                  <ul class="mt-4 space-y-3 text-slate-300">
+                     <li class="flex items-center gap-2">
+                        <i
+                           class="devicon-postgresql-plain colored skill-icon"
+                        ></i>
+                        PostgreSQL
+                     </li>
+                     <li class="flex items-center gap-2">
+                        <i class="devicon-mysql-plain colored skill-icon"></i>
+                        MySQL
+                     </li>
+                     <li class="flex items-center gap-2">
+                        <i class="bx bx-loader-circle skill-icon"></i> Celery
+                     </li>
+                     <li class="flex items-center gap-2">
+                        <i class="devicon-redis-plain colored skill-icon"></i>
+                        Redis
+                     </li>
+                     <li class="flex items-center gap-2">
+                        <i class="devicon-docker-plain colored skill-icon"></i>
+                        Docker
+                     </li>
+                     <li class="flex items-center gap-2">
+                        <i class="bx bx-transfer-alt skill-icon"></i> SFTP
+                     </li>
+                  </ul>
+               </div>
 
-  <!-- CONTACT -->
-  <section id="contact" class="py-20">
-    <div class="max-w-3xl mx-auto px-6 bg-white rounded-xl shadow p-8">
-      <h2 class="text-2xl font-bold mb-4">Contact</h2>
-      <form action="https://formspree.io/f/your_form_id" method="POST" class="space-y-4">
-        <input name="name" required placeholder="Your Name" class="w-full p-3 border rounded" />
-        <input name="email" type="email" required placeholder="Your Email" class="w-full p-3 border rounded" />
-        <textarea name="message" rows="5" required placeholder="Your Message" class="w-full p-3 border rounded"></textarea>
-        <button type="submit" class="px-6 py-3 rounded-full accent text-white font-semibold">Send</button>
-      </form>
-      <p class="mt-4 text-gray-600">Or email: <a href="mailto:parthdadhaniya079@gmail.com" class="text-blue-600 underline">parthdadhaniya079@gmail.com</a></p>
-    </div>
-  </section>
+               <div class="bg-slate-800/30 p-6 rounded-xl" data-aos="fade-left">
+                  <h4 class="font-semibold">Tools</h4>
+                  <ul class="mt-4 space-y-3 text-slate-300">
+                     <li class="flex items-center gap-2">
+                        <i class="devicon-github-original skill-icon"></i>
+                        GitHub
+                     </li>
+                     <li class="flex items-center gap-2">
+                        <i class="devicon-bitbucket-original skill-icon"></i>
+                        Bitbucket
+                     </li>
+                     <li class="flex items-center gap-2">
+                        <i class="bx bxs-cloud skill-icon"></i> Azure AD
+                     </li>
+                     <li class="flex items-center gap-2">
+                        <i class="devicon-linux-plain skill-icon"></i> Linux
+                     </li>
+                     <li class="flex items-center gap-2">
+                        <i class="bx bx-line-chart skill-icon"></i> Monitoring &
+                        Logging
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+      </section>
 
-  <!-- FOOTER -->
-  <footer class="py-8 text-center text-gray-500">
-    <p>© 2025 Parth Dadhaniya — Built with ❤️ using TailwindCSS</p>
-  </footer>
+      <!-- CONTACT -->
+      <section id="contact" class="py-20">
+         <div class="max-w-3xl mx-auto px-6 bg-white rounded-xl shadow p-8">
+            <h2 class="text-2xl font-bold mb-4">Contact</h2>
+            <form
+               action="https://formspree.io/f/your_form_id"
+               method="POST"
+               class="space-y-4"
+            >
+               <input
+                  name="name"
+                  required
+                  placeholder="Your Name"
+                  class="w-full p-3 border rounded"
+               />
+               <input
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="Your Email"
+                  class="w-full p-3 border rounded"
+               />
+               <textarea
+                  name="message"
+                  rows="5"
+                  required
+                  placeholder="Your Message"
+                  class="w-full p-3 border rounded"
+               ></textarea>
+               <button
+                  type="submit"
+                  class="px-6 py-3 rounded-full accent text-white font-semibold"
+               >
+                  Send
+               </button>
+            </form>
+            <p class="mt-4 text-gray-600">
+               Or email:
+               <a
+                  href="mailto:parthdadhaniya079@gmail.com"
+                  class="text-blue-600 underline"
+                  >parthdadhaniya079@gmail.com</a
+               >
+            </p>
+         </div>
+      </section>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 800, once: true });
-    new Typed('#typed', {
-      strings: ['Python Developer', 'Django Specialist', 'Backend Engineer'],
-      typeSpeed: 60,
-      backSpeed: 40,
-      backDelay: 1400,
-      loop: true
-    });
-    const themeBtn = document.getElementById('themeBtn');
-    themeBtn.addEventListener('click', () => {
-      if(document.body.classList.contains('bg-white')) {
-        document.body.classList.remove('bg-white','text-gray-800');
-        document.body.classList.add('bg-gray-900','text-gray-100');
-        themeBtn.textContent = '☀️';
-      } else {
-        document.body.classList.remove('bg-gray-900','text-gray-100');
-        document.body.classList.add('bg-white','text-gray-800');
-        themeBtn.textContent = '🌙';
-      }
-    });
-  </script>
-</body>
+      <!-- FOOTER -->
+      <footer class="py-8 text-center text-gray-500">
+         <p>© 2025 Parth Dadhaniya — Built with ❤️ using TailwindCSS</p>
+      </footer>
+
+      <!-- Scripts -->
+      <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+      <script>
+         AOS.init({ duration: 800, once: true });
+         new Typed("#typed", {
+            strings: [
+               "Python Developer",
+               "Django Specialist",
+               "Backend Engineer",
+            ],
+            typeSpeed: 60,
+            backSpeed: 40,
+            backDelay: 1400,
+            loop: true,
+         });
+         const themeBtn = document.getElementById("themeBtn");
+         themeBtn.addEventListener("click", () => {
+            if (document.body.classList.contains("bg-white")) {
+               document.body.classList.remove("bg-white", "text-gray-800");
+               document.body.classList.add("bg-gray-900", "text-gray-100");
+               themeBtn.textContent = "☀️";
+            } else {
+               document.body.classList.remove("bg-gray-900", "text-gray-100");
+               document.body.classList.add("bg-white", "text-gray-800");
+               themeBtn.textContent = "🌙";
+            }
+         });
+      </script>
+   </body>
 </html>
